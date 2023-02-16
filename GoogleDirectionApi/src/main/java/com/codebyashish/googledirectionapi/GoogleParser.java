@@ -40,7 +40,7 @@ public class GoogleParser extends XMLParser {
                 if (!json.getString("status").equals(this.OK)) {
                     throw new Exceptions(json);
                 } else {
-                    JSONArray jsonRoutes = json.getJSONArray("routeInfoModels");
+                    JSONArray jsonRoutes = json.getJSONArray("routes");
                     for(int i = 0; i < jsonRoutes.length(); ++i) {
                         RouteInfoModel routeInfoModel = new RouteInfoModel();
                         Segment segment = new Segment();
