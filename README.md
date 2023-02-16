@@ -19,6 +19,6 @@ Include the library in your `build.gradle`
 
 ```groovy
 dependencies {
-	        implementation 'com.github.DangiAshish:Google-Direction-Api:1.0'
+	        implementation 'com.github.DangiAshish:Google-Direction-Api:1.1'
 	}
 ```
