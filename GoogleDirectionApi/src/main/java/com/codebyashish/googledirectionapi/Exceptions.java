@@ -18,7 +18,7 @@ public class Exceptions extends Exception {
                 this.statusCode = json.getString("status");
                 this.message = json.getString("error_message");
             } catch (JSONException e) {
-               Log.e("Route json error" , "JSON parsing error : " + e.getMessage());
+               Log.e("RouteInfoModel json error" , "JSON parsing error : " + e.getMessage());
             }
 
         }

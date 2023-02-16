@@ -7,7 +7,7 @@ import com.google.android.gms.maps.model.PolylineOptions;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Route {
+public class RouteInfoModel {
     private String name;
     private final List<LatLng> points = new ArrayList<>();
     private List<Segment> segments = new ArrayList<>();
@@ -76,7 +76,7 @@ public class Route {
         this.segments = segments;
     }
 
-    public Route() {
+    public RouteInfoModel() {
     }
 
     public void addPoint(LatLng p) {

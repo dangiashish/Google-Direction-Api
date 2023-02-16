@@ -7,7 +7,7 @@ import com.google.android.gms.maps.model.PolylineOptions;
 
 import java.util.ArrayList;
 
-public abstract class AbstractRouting extends AsyncTask<Void, Void, ArrayList<Route>> {
+public abstract class AbstractRouting extends AsyncTask<Void, Void, ArrayList<RouteInfoModel>> {
     protected ArrayList<RouteListener> listenerArrayList = new ArrayList<>();
     protected static final String DIRECTIONS_API_URL = "https://maps.googleapis.com/maps/api/directions/json?";
     private Exceptions exceptions = null;
@@ -37,9 +37,9 @@ public abstract class AbstractRouting extends AsyncTask<Void, Void, ArrayList<Ro
 
     }
 
-    protected void dispatchOnSuccess(ArrayList<Route> route, int shortestRouteIndex) {
+    protected void dispatchOnSuccess(ArrayList<RouteInfoModel> routeInfoModel, int shortestRouteIndex) {
         for (RouteListener mListener : this.listenerArrayList) {
-            mListener.onRouteSuccess(route, shortestRouteIndex);
+            mListener.onRouteSuccess(routeInfoModel, shortestRouteIndex);
         }
 
     }
@@ -51,8 +51,8 @@ public abstract class AbstractRouting extends AsyncTask<Void, Void, ArrayList<Ro
 
     }
 
-    protected ArrayList<Route> doInBackground(Void... voids) {
-        ArrayList<Route> result = new ArrayList<>();
+    protected ArrayList<RouteInfoModel> doInBackground(Void... voids) {
+        ArrayList<RouteInfoModel> result = new ArrayList<>();
 
         try {
             result = (new GoogleParser(this.constructURL())).parse();
@@ -69,20 +69,20 @@ public abstract class AbstractRouting extends AsyncTask<Void, Void, ArrayList<Ro
         this.dispatchOnStart();
     }
 
-    protected void onPostExecute(ArrayList<Route> result) {
+    protected void onPostExecute(ArrayList<RouteInfoModel> result) {
         if (!result.isEmpty()) {
             int shortestRouteIndex = 0;
             int minDistance = Integer.MAX_VALUE;
 
             for(int i = 0; i < result.size(); ++i) {
                 PolylineOptions mOptions = new PolylineOptions();
-                Route route = result.get(i);
-                if (route.getLength() < minDistance) {
+                RouteInfoModel routeInfoModel = result.get(i);
+                if (routeInfoModel.getLength() < minDistance) {
                     shortestRouteIndex = i;
-                    minDistance = route.getLength();
+                    minDistance = routeInfoModel.getLength();
                 }
 
-                for (LatLng point : route.getPoints()) {
+                for (LatLng point : routeInfoModel.getPoints()) {
                     mOptions.add(point);
                 }
 

@@ -7,7 +7,7 @@ public interface RouteListener {
 
     void onRouteStart();
 
-    void onRouteSuccess(ArrayList<Route> list, int indexing);
+    void onRouteSuccess(ArrayList<RouteInfoModel> list, int indexing);
 
     void onRouteCancelled();
 }
