@@ -3,13 +3,13 @@ package com.codebyashish.googledirectionapi;
 
 import com.google.android.gms.maps.model.LatLng;
 
-public class Segment {
+public class StepsModel {
     private LatLng start;
     private String instruction;
     private int length;
     private double distance;
 
-    public Segment() {
+    public StepsModel() {
     }
 
     public void setInstruction(String turn) {
@@ -28,8 +28,8 @@ public class Segment {
         return this.start;
     }
 
-    public Segment copy() {
-        Segment copy = new Segment();
+    public StepsModel copy() {
+        StepsModel copy = new StepsModel();
         copy.start = this.start;
         copy.instruction = this.instruction;
         copy.length = this.length;

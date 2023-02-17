@@ -10,7 +10,7 @@ import java.util.List;
 public class RouteInfoModel {
     private String name;
     private final List<LatLng> points = new ArrayList<>();
-    private List<Segment> segments = new ArrayList<>();
+    private List<StepsModel> stepsModels = new ArrayList<>();
     private String copyright;
     private String warning;
     private String country;
@@ -72,8 +72,8 @@ public class RouteInfoModel {
         this.distanceValue = distanceValue;
     }
 
-    public void setSegments(List<Segment> segments) {
-        this.segments = segments;
+    public void setSegments(List<StepsModel> stepsModels) {
+        this.stepsModels = stepsModels;
     }
 
     public RouteInfoModel() {
@@ -91,12 +91,12 @@ public class RouteInfoModel {
         return this.points;
     }
 
-    public void addSegment(Segment s) {
-        this.segments.add(s);
+    public void addSegment(StepsModel s) {
+        this.stepsModels.add(s);
     }
 
-    public List<Segment> getSegments() {
-        return this.segments;
+    public List<StepsModel> getSegments() {
+        return this.stepsModels;
     }
 
     public void setName(String name) {

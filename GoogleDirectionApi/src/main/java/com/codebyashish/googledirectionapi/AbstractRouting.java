@@ -9,8 +9,7 @@ import java.util.ArrayList;
 
 public abstract class AbstractRouting extends AsyncTask<Void, Void, ArrayList<RouteInfoModel>> {
     protected ArrayList<RouteListener> listenerArrayList = new ArrayList<>();
-    protected static final String DIRECTIONS_API_URL = "https://maps.googleapis.com/maps/api/directions/json?";
-    private Exceptions exceptions = null;
+    private ErrorHandling errorHandling = null;
 
     protected AbstractRouting(RouteListener listener) {
         this.registerListener(listener);
@@ -30,7 +29,7 @@ public abstract class AbstractRouting extends AsyncTask<Void, Void, ArrayList<Ro
 
     }
 
-    protected void dispatchOnFailure(Exceptions exception) {
+    protected void dispatchOnFailure(ErrorHandling exception) {
         for (RouteListener mListener : this.listenerArrayList) {
             mListener.onRouteFailure(exception);
         }
@@ -55,9 +54,9 @@ public abstract class AbstractRouting extends AsyncTask<Void, Void, ArrayList<Ro
         ArrayList<RouteInfoModel> result = new ArrayList<>();
 
         try {
-            result = (new GoogleParser(this.constructURL())).parse();
-        } catch (Exceptions var4) {
-            this.exceptions = var4;
+            result = (new RouteJsonParser(this.constructURL())).parse();
+        } catch (ErrorHandling errorHandling) {
+            this.errorHandling = errorHandling;
         }
 
         return result;
@@ -75,7 +74,7 @@ public abstract class AbstractRouting extends AsyncTask<Void, Void, ArrayList<Ro
             int minDistance = Integer.MAX_VALUE;
 
             for(int i = 0; i < result.size(); ++i) {
-                PolylineOptions mOptions = new PolylineOptions();
+                PolylineOptions polylineOptions = new PolylineOptions();
                 RouteInfoModel routeInfoModel = result.get(i);
                 if (routeInfoModel.getLength() < minDistance) {
                     shortestRouteIndex = i;
@@ -83,15 +82,15 @@ public abstract class AbstractRouting extends AsyncTask<Void, Void, ArrayList<Ro
                 }
 
                 for (LatLng point : routeInfoModel.getPoints()) {
-                    mOptions.add(point);
+                    polylineOptions.add(point);
                 }
 
-                result.get(i).setPolyOptions(mOptions);
+                result.get(i).setPolyOptions(polylineOptions);
             }
 
             this.dispatchOnSuccess(result, shortestRouteIndex);
         } else {
-            this.dispatchOnFailure(this.exceptions);
+            this.dispatchOnFailure(this.errorHandling);
         }
 
     }
@@ -105,16 +104,16 @@ public abstract class AbstractRouting extends AsyncTask<Void, Void, ArrayList<Ro
         HIGHWAYS(2, "highways"),
         FERRIES(4, "ferries");
 
-        private final String _sRequestParam;
-        private final int _sBitValue;
+        private final String param;
+        private final int bit;
 
         AvoidKind(int bit, String param) {
-            this._sBitValue = bit;
-            this._sRequestParam = param;
+            this.bit = bit;
+            this.param = param;
         }
 
         int getBitValue() {
-            return this._sBitValue;
+            return this.bit;
         }
 
         static String getRequestParam(int bit) {
@@ -122,8 +121,8 @@ public abstract class AbstractRouting extends AsyncTask<Void, Void, ArrayList<Ro
             AvoidKind[] arr$ = values();
 
             for (AvoidKind kind : arr$) {
-                if ((bit & kind._sBitValue) == kind._sBitValue) {
-                    ret = ret + kind._sRequestParam;
+                if ((bit & kind.bit) == kind.bit) {
+                    ret = ret + kind.param;
                     ret = ret + "|";
                 }
             }

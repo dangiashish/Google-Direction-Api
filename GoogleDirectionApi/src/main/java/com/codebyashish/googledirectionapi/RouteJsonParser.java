@@ -1,11 +1,5 @@
 package com.codebyashish.googledirectionapi;
 
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
-
 import android.util.Log;
 
 import com.google.android.gms.maps.model.LatLng;
@@ -21,29 +15,29 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GoogleParser extends XMLParser {
+public class RouteJsonParser extends XMLParser {
     private int distance;
-    private String OK = "OK";
 
-    public GoogleParser(String feedUrl) {
+
+    public RouteJsonParser(String feedUrl) {
         super(feedUrl);
     }
 
-    public ArrayList<RouteInfoModel> parse() throws Exceptions {
+    public ArrayList<RouteInfoModel> parse() throws ErrorHandling {
         ArrayList<RouteInfoModel> routeInfoModels = new ArrayList<>();
         String result = convertStreamToString(this.getInputStream());
         if (result == null) {
-            throw new Exceptions("Result is null");
+            throw new ErrorHandling("No result found");
         } else {
             try {
                 JSONObject json = new JSONObject(result);
-                if (!json.getString("status").equals(this.OK)) {
-                    throw new Exceptions(json);
+                if (!json.getString("status").equals(KeyConstants.OK)) {
+                    throw new ErrorHandling(json);
                 } else {
                     JSONArray jsonRoutes = json.getJSONArray("routes");
                     for(int i = 0; i < jsonRoutes.length(); ++i) {
                         RouteInfoModel routeInfoModel = new RouteInfoModel();
-                        Segment segment = new Segment();
+                        StepsModel stepsModel = new StepsModel();
                         JSONObject jsonRoute = jsonRoutes.getJSONObject(i);
                         JSONObject jsonBounds = jsonRoute.getJSONObject("bounds");
                         JSONObject jsonNortheast = jsonBounds.getJSONObject("northeast");
@@ -51,8 +45,8 @@ public class GoogleParser extends XMLParser {
                         routeInfoModel.setLatLgnBounds(new LatLng(jsonNortheast.getDouble("lat"), jsonNortheast.getDouble("lng")), new LatLng(jsonSouthwest.getDouble("lat"), jsonSouthwest.getDouble("lng")));
                         JSONObject leg = jsonRoute.getJSONArray("legs").getJSONObject(0);
                         JSONArray steps = leg.getJSONArray("steps");
-                        int numSteps = steps.length();
-                        routeInfoModel.setName(leg.getString("start_address") + " to " + leg.getString("end_address"));
+
+                        routeInfoModel.setName(leg.getString(KeyConstants.START_ADDRESS) + " to " + leg.getString(KeyConstants.END_ADDRESS));
                         routeInfoModel.setCopyright(jsonRoute.getString("copyrights"));
                         routeInfoModel.setDurationText(leg.getJSONObject("duration").getString("text"));
                         routeInfoModel.setDurationValue(leg.getJSONObject("duration").getInt("value"));
@@ -64,18 +58,18 @@ public class GoogleParser extends XMLParser {
                             routeInfoModel.setWarning(jsonRoute.getJSONArray("warnings").getString(0));
                         }
 
-                        for(int y = 0; y < numSteps; ++y) {
+                        for(int y = 0; y < steps.length(); ++y) {
                             JSONObject step = steps.getJSONObject(y);
-                            JSONObject start = step.getJSONObject("start_location");
+                            JSONObject start = step.getJSONObject(KeyConstants.START_LOCATION);
                             LatLng position = new LatLng(start.getDouble("lat"), start.getDouble("lng"));
-                            segment.setPoint(position);
+                            stepsModel.setPoint(position);
                             int length = step.getJSONObject("distance").getInt("value");
                             this.distance += length;
-                            segment.setLength(length);
-                            segment.setDistance((double)this.distance / 1000.0);
-                            segment.setInstruction(step.getString("html_instructions").replaceAll("<(.*?)*>", ""));
+                            stepsModel.setLength(length);
+                            stepsModel.setDistance((double)this.distance / 1000.0);
+                            stepsModel.setInstruction(step.getString("html_instructions").replaceAll("<(.*?)*>", ""));
                             routeInfoModel.addPoints(this.decodePolyLine(step.getJSONObject("polyline").getString("points")));
-                            routeInfoModel.addSegment(segment.copy());
+                            routeInfoModel.addSegment(stepsModel.copy());
                         }
 
                         routeInfoModels.add(routeInfoModel);
@@ -84,7 +78,7 @@ public class GoogleParser extends XMLParser {
                     return routeInfoModels;
                 }
             } catch (JSONException var20) {
-                throw new Exceptions("JSONException. Msg: " + var20.getMessage());
+                throw new ErrorHandling("JSONException. Msg: " + var20.getMessage());
             }
         }
     }

@@ -13,8 +13,8 @@ public class XMLParser {
     protected XMLParser(String feedUrl) {
         try {
             this.feedUrl = new URL(feedUrl);
-        } catch (MalformedURLException var3) {
-            Log.e("RouteDrawing Error", var3.getMessage());
+        } catch (MalformedURLException e) {
+            Log.e("RouteDrawing Error", e.getMessage());
         }
 
     }
@@ -22,8 +22,8 @@ public class XMLParser {
     protected InputStream getInputStream() {
         try {
             return this.feedUrl.openConnection().getInputStream();
-        } catch (IOException var2) {
-            Log.e("RouteDrawing Error", var2.getMessage());
+        } catch (IOException e) {
+            Log.e("RouteDrawing Error", e.getMessage());
             return null;
         }
     }

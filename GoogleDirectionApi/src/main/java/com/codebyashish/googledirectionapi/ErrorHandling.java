@@ -5,11 +5,12 @@ import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Exceptions extends Exception {
+public class ErrorHandling extends Exception {
     private String statusCode;
     private String message;
+    private int status;
 
-    public Exceptions(JSONObject json) {
+    public ErrorHandling(JSONObject json) {
         if (json == null) {
             this.statusCode = "";
             this.message = "Cannot parse";
@@ -18,13 +19,17 @@ public class Exceptions extends Exception {
                 this.statusCode = json.getString("status");
                 this.message = json.getString("error_message");
             } catch (JSONException e) {
-               Log.e("RouteInfoModel json error" , "JSON parsing error : " + e.getMessage());
+               Log.e("route json error" , "JSON parsing error : " + e.getMessage());
             }
 
         }
     }
 
-    public Exceptions(String msg) {
+    public ErrorHandling(int status){
+       this.status = status;
+    }
+
+    public ErrorHandling(String msg) {
         this.message = msg;
     }
 

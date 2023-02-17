@@ -3,7 +3,7 @@ package com.codebyashish.googledirectionapi;
 import java.util.ArrayList;
 
 public interface RouteListener {
-    void onRouteFailure(Exceptions e);
+    void onRouteFailure(ErrorHandling e);
 
     void onRouteStart();
 
