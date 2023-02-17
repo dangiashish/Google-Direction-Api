@@ -9,22 +9,15 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6c72c2b3-bd7b-44dd-9bb5-1ac217956847" name="Changes" comment="v1.2">
+    <list default="true" id="6c72c2b3-bd7b-44dd-9bb5-1ac217956847" name="Changes" comment="minor optimization">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoogleDirectionApi/src/main/java/com/codebyashish/googledirectionapi/AbstractRouting.java" beforeDir="false" afterPath="$PROJECT_DIR$/GoogleDirectionApi/src/main/java/com/codebyashish/googledirectionapi/AbstractRouting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoogleDirectionApi/src/main/java/com/codebyashish/googledirectionapi/Exceptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/GoogleDirectionApi/src/main/java/com/codebyashish/googledirectionapi/ErrorHandling.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoogleDirectionApi/src/main/java/com/codebyashish/googledirectionapi/GoogleParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/GoogleDirectionApi/src/main/java/com/codebyashish/googledirectionapi/GoogleParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoogleDirectionApi/src/main/java/com/codebyashish/googledirectionapi/RouteDrawing.java" beforeDir="false" afterPath="$PROJECT_DIR$/GoogleDirectionApi/src/main/java/com/codebyashish/googledirectionapi/RouteDrawing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoogleDirectionApi/src/main/java/com/codebyashish/googledirectionapi/RouteInfoModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/GoogleDirectionApi/src/main/java/com/codebyashish/googledirectionapi/RouteInfoModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoogleDirectionApi/src/main/java/com/codebyashish/googledirectionapi/RouteListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/GoogleDirectionApi/src/main/java/com/codebyashish/googledirectionapi/RouteListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoogleDirectionApi/src/main/java/com/codebyashish/googledirectionapi/Segment.java" beforeDir="false" afterPath="$PROJECT_DIR$/GoogleDirectionApi/src/main/java/com/codebyashish/googledirectionapi/StepsModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\user\.android\avd\Pixel_6_API_33.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[adb-eaf58874-nkLWON._adb-tls-connect._tcp]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -173,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676538610453</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="minor optimization">
+      <created>1676608888487</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1676608888487</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -196,6 +196,7 @@
     <MESSAGE value="minor" />
     <MESSAGE value="v1.1" />
     <MESSAGE value="v1.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="v1.2" />
+    <MESSAGE value="minor optimization" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor optimization" />
   </component>
 </project>

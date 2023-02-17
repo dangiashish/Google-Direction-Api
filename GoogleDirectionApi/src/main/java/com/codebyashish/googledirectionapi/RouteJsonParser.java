@@ -31,7 +31,7 @@ public class RouteJsonParser extends XMLParser {
         } else {
             try {
                 JSONObject json = new JSONObject(result);
-                if (!json.getString("status").equals(KeyConstants.OK)) {
+                if (!json.getString("status").equals(Constants.OK)) {
                     throw new ErrorHandling(json);
                 } else {
                     JSONArray jsonRoutes = json.getJSONArray("routes");
@@ -46,7 +46,7 @@ public class RouteJsonParser extends XMLParser {
                         JSONObject leg = jsonRoute.getJSONArray("legs").getJSONObject(0);
                         JSONArray steps = leg.getJSONArray("steps");
 
-                        routeInfoModel.setName(leg.getString(KeyConstants.START_ADDRESS) + " to " + leg.getString(KeyConstants.END_ADDRESS));
+                        routeInfoModel.setName(leg.getString(Constants.START_ADDRESS) + " to " + leg.getString(Constants.END_ADDRESS));
                         routeInfoModel.setCopyright(jsonRoute.getString("copyrights"));
                         routeInfoModel.setDurationText(leg.getJSONObject("duration").getString("text"));
                         routeInfoModel.setDurationValue(leg.getJSONObject("duration").getInt("value"));
@@ -60,7 +60,7 @@ public class RouteJsonParser extends XMLParser {
 
                         for(int y = 0; y < steps.length(); ++y) {
                             JSONObject step = steps.getJSONObject(y);
-                            JSONObject start = step.getJSONObject(KeyConstants.START_LOCATION);
+                            JSONObject start = step.getJSONObject(Constants.START_LOCATION);
                             LatLng position = new LatLng(start.getDouble("lat"), start.getDouble("lng"));
                             stepsModel.setPoint(position);
                             int length = step.getJSONObject("distance").getInt("value");

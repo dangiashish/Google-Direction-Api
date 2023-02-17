@@ -27,7 +27,7 @@ public class RouteDrawing extends AbstractRouting {
     }
 
     protected String constructURL() {
-        StringBuilder stringBuilder = new StringBuilder(KeyConstants.DIRECTION_BASE_URL);
+        StringBuilder stringBuilder = new StringBuilder(Constants.DIRECTION_BASE_URL);
         LatLng origin = this.waypoints.get(0);
         stringBuilder.append("origin=");
         stringBuilder.append(origin.latitude);
