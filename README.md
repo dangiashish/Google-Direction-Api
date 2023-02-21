@@ -55,6 +55,8 @@ public void getRoutePoints(LatLng start, LatLng end) {
 }
 ```
 
+Implement the `RouteListener` interface class in your `Activity/Fragment` to override the operations
+
 #### On Route Failed
 ```java
 @Override
