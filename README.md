@@ -2,6 +2,10 @@
 
 [![](https://jitpack.io/v/DangiAshish/Google-Direction-Api.svg)](https://jitpack.io/#DangiAshish/Google-Direction-Api)
 
+#### Demo
+
+<img src="https://github.com/DangiAshish/Google-Direction-Api/blob/b7cf938dda7465982f6bce0d78fb5408bc90a644/GIF_20230221_124204.gif" alt="gif" style="width:200px; height:200px"/>
+
 ### Gradle
 
 Add dependency in your `build.gradle` (project-level) file :
