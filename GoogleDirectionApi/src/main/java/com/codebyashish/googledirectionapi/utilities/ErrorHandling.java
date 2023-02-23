@@ -1,4 +1,4 @@
-package com.codebyashish.googledirectionapi;
+package com.codebyashish.googledirectionapi.utilities;
 
 import android.util.Log;
 
