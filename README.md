@@ -59,6 +59,8 @@ public void getRoutePoints(LatLng start, LatLng end) {
 }
 ```
 
+##### ⚠ Note : Please restrict your api keys on GCP for your specific android package name 
+
 Implement the `RouteListener` interface class in your `Activity/Fragment` to override the operations
 
 #### On Route Failed
@@ -112,4 +114,4 @@ public void onRouteCancelled() {
 }
 ```
 
-####Thanks
+### Thanks
