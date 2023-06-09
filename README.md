@@ -34,7 +34,7 @@ dependencyResolutionManagement {
 Add dependency in your `build.gradle` (module-level) file :
 ```groovy
 dependencies {
-	  implementation 'com.github.DangiAshish:Google-Direction-Api:1.4'
+	  implementation 'com.github.dangiashish:Google-Direction-Api:1.4'
 }
 ```
 
