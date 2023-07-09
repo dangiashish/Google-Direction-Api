@@ -8,7 +8,7 @@
 
 ### Gradle
 
-Add repository in your `build.gradle` (project-level) file :
+Add jitpack repository in your `build.gradle` (project-level) file :
 ```gradle
 allprojects {
       repositories {
