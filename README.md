@@ -8,7 +8,7 @@
 
 ### Gradle
 
-Add dependency in your `build.gradle` (project-level) file :
+Add repository in your `build.gradle` (project-level) file :
 ```gradle
 allprojects {
       repositories {
