@@ -53,7 +53,7 @@ public void getRoutePoints(LatLng start, LatLng end) {
               .withListener(this).alternativeRoutes(true)
               .waypoints(start, end)
 	      .build();
-           routeDraawing.execute();
+           routeDrawing.execute();
        }
 
 }
