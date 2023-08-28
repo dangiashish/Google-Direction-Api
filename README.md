@@ -4,11 +4,11 @@
 
 #### Demo
 
-<img src="https://github.com/DangiAshish/Google-Direction-Api/blob/b7cf938dda7465982f6bce0d78fb5408bc90a644/GIF_20230221_124204.gif" alt="gif" style="width:200px; height:200px"/>
+<img src="https://github.com/DangiAshish/Google-Direction-Api/blob/b7cf938dda7465982f6bce0d78fb5408bc90a644/GIF_20230221_124204.gif" alt="gif" style="width:200px; height:400px"/>
 
 ### Gradle
 
-Add dependency in your `build.gradle` (project-level) file :
+Add jitpack repository in your `build.gradle` (project-level) file :
 ```gradle
 allprojects {
       repositories {
@@ -34,7 +34,7 @@ dependencyResolutionManagement {
 Add dependency in your `build.gradle` (module-level) file :
 ```groovy
 dependencies {
-	  implementation 'com.github.DangiAshish:Google-Direction-Api:1.4'
+	  implementation 'com.github.dangiashish:Google-Direction-Api:1.4'
 }
 ```
 
@@ -53,11 +53,13 @@ public void getRoutePoints(LatLng start, LatLng end) {
               .withListener(this).alternativeRoutes(true)
               .waypoints(start, end)
 	      .build();
-           routeDraawing.execute();
+           routeDrawing.execute();
        }
 
 }
 ```
+
+##### ⚠ Note : Please restrict your api keys on GCP for your specific android package name 
 
 Implement the `RouteListener` interface class in your `Activity/Fragment` to override the operations
 
@@ -112,4 +114,4 @@ public void onRouteCancelled() {
 }
 ```
 
-####Thanks
+### Thanks
