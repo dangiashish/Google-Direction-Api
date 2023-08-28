@@ -4,7 +4,7 @@
 
 #### Demo
 
-<img src="[https://github.com/DangiAshish/Google-Direction-Api/blob/b7cf938dda7465982f6bce0d78fb5408bc90a644/GIF_20230221_124204.gif](https://github.com/dangiashish/Google-Direction-Api/blob/bd0aa86a0afe977f761addb9349417f7ad477a0a/sample/sample.mp4)" alt="gif" style="width:200px; height:400px"/>
+<img src="https://github.com/dangiashish/Google-Direction-Api/blob/ec7fda4a03601d9719d4258b5a1b1ae5a92d5909/sample/GIF_20230221_124204.gif" alt="gif" style="width:200px; height:400px"/>
 
 ### Gradle
 
