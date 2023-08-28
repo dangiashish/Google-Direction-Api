@@ -1,5 +1,10 @@
 package com.codebyashish.googledirectionapi;
 
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+
 import com.codebyashish.googledirectionapi.utilities.Constants;
 import com.codebyashish.googledirectionapi.utilities.RouteListener;
 import com.google.android.gms.maps.model.LatLng;
@@ -15,7 +20,8 @@ public class RouteDrawing extends AbstractRouting {
     private final int avoidKinds;
     private final boolean optimize;
     private final String language;
-    private final String key;
+    private String key;
+    private final Context context;
 
     private RouteDrawing(Builder builder) {
         super(builder.listener);
@@ -25,7 +31,8 @@ public class RouteDrawing extends AbstractRouting {
         this.optimize = builder.optimize;
         this.alternativeRoutes = builder.alternativeRoutes;
         this.language = builder.language;
-        this.key = builder.key;
+//        this.key = builder.key;
+        this.context = builder.context;
     }
 
     protected String constructURL() {
@@ -73,7 +80,7 @@ public class RouteDrawing extends AbstractRouting {
         }
 
         if (this.key != null) {
-            stringBuilder.append("&key=").append(this.key);
+            stringBuilder.append("&key=").append(getMapKey(context));
         }
 
         return stringBuilder.toString();
@@ -88,6 +95,7 @@ public class RouteDrawing extends AbstractRouting {
         private boolean optimize;
         private String language;
         private String key;
+        private Context context;
 
         public Builder() {
             this.travelMode = TravelMode.DRIVING;
@@ -97,7 +105,8 @@ public class RouteDrawing extends AbstractRouting {
             this.listener = null;
             this.optimize = false;
             this.language = null;
-            this.key = null;
+//            this.key = null;
+            this.context = null;
         }
 
         public Builder travelMode(AbstractRouting.TravelMode travelMode) {
@@ -132,8 +141,13 @@ public class RouteDrawing extends AbstractRouting {
             return this;
         }
 
-        public Builder key(String key) {
+       /* public Builder key(String key) {
             this.key = key;
+            return this;
+        }*/
+
+         public Builder context(Context context) {
+            this.context = context;
             return this;
         }
 
@@ -151,5 +165,23 @@ public class RouteDrawing extends AbstractRouting {
                 return new RouteDrawing(this);
             }
         }
+    }
+
+    private static String getMapKey(Context context) {
+        PackageManager packageManager = context.getPackageManager();
+        String apiKey = null;
+
+        try {
+            ApplicationInfo applicationInfo = packageManager.getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
+            Bundle metaData = applicationInfo.metaData;
+
+            if (metaData != null && metaData.containsKey("com.google.android.geo.API_KEY")) {
+                apiKey = metaData.getString("com.google.android.geo.API_KEY");
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return apiKey;
     }
 }
