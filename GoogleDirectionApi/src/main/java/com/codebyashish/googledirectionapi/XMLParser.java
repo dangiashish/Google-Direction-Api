@@ -1,4 +1,4 @@
-package com.codebyashish.googledirectionapi.utilities;
+package com.codebyashish.googledirectionapi;
 
 import android.util.Log;
 
@@ -14,7 +14,7 @@ public class XMLParser {
         try {
             this.feedUrl = new URL(feedUrl);
         } catch (MalformedURLException e) {
-            Log.e("RouteDrawing Error", e.getMessage());
+            Log.e("RouteDrawing Error", e.getMessage() + " please watch tutorial for more - https://youtu.be/DRaRStNyZ0k");
         }
 
     }
@@ -23,7 +23,7 @@ public class XMLParser {
         try {
             return this.feedUrl.openConnection().getInputStream();
         } catch (IOException e) {
-            Log.e("RouteDrawing Error", e.getMessage());
+            Log.e("RouteDrawing Error", e.getMessage() + " please watch tutorial for more - https://youtu.be/DRaRStNyZ0k");
             return null;
         }
     }

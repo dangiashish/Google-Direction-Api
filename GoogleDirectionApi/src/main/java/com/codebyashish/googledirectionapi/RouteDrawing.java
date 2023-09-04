@@ -1,12 +1,12 @@
 package com.codebyashish.googledirectionapi;
 
+import static com.codebyashish.googledirectionapi.Constants.getTutorial;
+
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 
-import com.codebyashish.googledirectionapi.utilities.Constants;
-import com.codebyashish.googledirectionapi.utilities.RouteListener;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
@@ -14,28 +14,27 @@ import java.util.Collections;
 import java.util.List;
 
 public class RouteDrawing extends AbstractRouting {
-    private final AbstractRouting.TravelMode travelMode;
+    private final TravelMode travelMode;
     private final boolean alternativeRoutes;
     private final List<LatLng> waypoints;
     private final int avoidKinds;
     private final boolean optimize;
     private final String language;
-    private String key;
     private final Context context;
 
     private RouteDrawing(Builder builder) {
         super(builder.listener);
+        this.context = builder.context;
         this.travelMode = builder.travelMode;
         this.waypoints = builder.waypoints;
         this.avoidKinds = builder.avoidKinds;
         this.optimize = builder.optimize;
         this.alternativeRoutes = builder.alternativeRoutes;
         this.language = builder.language;
-//        this.key = builder.key;
-        this.context = builder.context;
+
     }
 
-    protected String constructURL() {
+    protected String constructURL() throws ErrorHandling {
         StringBuilder stringBuilder = new StringBuilder(Constants.DIRECTION_BASE_URL);
         LatLng origin = this.waypoints.get(0);
         stringBuilder.append("origin=");
@@ -79,22 +78,28 @@ public class RouteDrawing extends AbstractRouting {
             stringBuilder.append("&language=").append(this.language);
         }
 
-        if (this.key != null) {
-            stringBuilder.append("&key=").append(getMapKey(context));
+        if (isGoogleMapsLinked(context)){
+            if (getMapKey(context) != null){
+                stringBuilder.append("&key=").append(getMapKey(context));
+            } else {
+                throw new ErrorHandling("This application is not authorized to use this API key" + getTutorial());
+            }
+        } else {
+            throw new ErrorHandling("Your project is not linked with google cloud platform" + getTutorial());
         }
+
 
         return stringBuilder.toString();
     }
 
     public static class Builder {
-        private AbstractRouting.TravelMode travelMode;
+        private TravelMode travelMode;
         private boolean alternativeRoutes;
         private List<LatLng> waypoints;
         private int avoidKinds;
         private RouteListener listener;
         private boolean optimize;
         private String language;
-        private String key;
         private Context context;
 
         public Builder() {
@@ -105,11 +110,10 @@ public class RouteDrawing extends AbstractRouting {
             this.listener = null;
             this.optimize = false;
             this.language = null;
-//            this.key = null;
             this.context = null;
         }
 
-        public Builder travelMode(AbstractRouting.TravelMode travelMode) {
+        public Builder travelMode(TravelMode travelMode) {
             this.travelMode = travelMode;
             return this;
         }
@@ -141,11 +145,6 @@ public class RouteDrawing extends AbstractRouting {
             return this;
         }
 
-       /* public Builder key(String key) {
-            this.key = key;
-            return this;
-        }*/
-
          public Builder context(Context context) {
             this.context = context;
             return this;
@@ -167,6 +166,7 @@ public class RouteDrawing extends AbstractRouting {
         }
     }
 
+    /** Check for Map API Key*/
     private static String getMapKey(Context context) {
         PackageManager packageManager = context.getPackageManager();
         String apiKey = null;
@@ -183,5 +183,24 @@ public class RouteDrawing extends AbstractRouting {
         }
 
         return apiKey;
+    }
+
+    /** Check for Map SDK Integration*/
+    private static boolean isGoogleMapsLinked(Context context) {
+        PackageManager packageManager = context.getPackageManager();
+        String apiKey = null;
+
+        try {
+            ApplicationInfo applicationInfo = packageManager.getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
+            Bundle metaData = applicationInfo.metaData;
+
+            if (metaData != null && metaData.containsKey("com.google.android.geo.API_KEY")) {
+                apiKey = metaData.getString("com.google.android.geo.API_KEY");
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return (apiKey != null);
     }
 }

@@ -2,11 +2,6 @@ package com.codebyashish.googledirectionapi;
 
 import android.util.Log;
 
-import com.codebyashish.googledirectionapi.modelclass.RouteInfoModel;
-import com.codebyashish.googledirectionapi.modelclass.StepsModel;
-import com.codebyashish.googledirectionapi.utilities.Constants;
-import com.codebyashish.googledirectionapi.utilities.ErrorHandling;
-import com.codebyashish.googledirectionapi.utilities.XMLParser;
 import com.google.android.gms.maps.model.LatLng;
 
 import org.json.JSONArray;
@@ -102,14 +97,14 @@ public class RouteJsonParser extends XMLParser {
                         sBuf.append(line);
                     }
                 } catch (IOException e) {
-                    Log.e("RouteDrawing Error", e.getMessage());
+                    Log.e("RouteDrawing Error", e.getMessage() + " please watch tutorial for more - https://youtu.be/DRaRStNyZ0k");
                 }
             } finally {
                 try {
                     input.close();
                     reader.close();
                 } catch (IOException e) {
-                    Log.e("RouteDrawing Error", e.getMessage());
+                    Log.e("RouteDrawing Error", e.getMessage() + " please watch tutorial for more - https://youtu.be/DRaRStNyZ0k");
                 }
 
             }

@@ -1,4 +1,4 @@
-package com.codebyashish.googledirectionapi.modelclass;
+package com.codebyashish.googledirectionapi;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;

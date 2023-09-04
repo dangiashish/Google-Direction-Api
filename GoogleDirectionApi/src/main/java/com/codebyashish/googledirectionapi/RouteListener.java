@@ -1,7 +1,4 @@
-package com.codebyashish.googledirectionapi.utilities;
-
-import com.codebyashish.googledirectionapi.modelclass.RouteInfoModel;
-import com.codebyashish.googledirectionapi.utilities.ErrorHandling;
+package com.codebyashish.googledirectionapi;
 
 import java.util.ArrayList;
 

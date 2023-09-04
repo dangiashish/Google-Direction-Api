@@ -1,4 +1,4 @@
-package com.codebyashish.googledirectionapi.utilities;
+package com.codebyashish.googledirectionapi;
 
 public class Constants {
 
@@ -7,5 +7,8 @@ public class Constants {
     public static String START_ADDRESS = "start_address";
     public static String END_ADDRESS = "end_address";
     public static String OK = "OK";
+    public static String getTutorial() {
+        return " To fix this, please watch tutorial - https://youtu.be/DRaRStNyZ0k";
+    }
 
 }
