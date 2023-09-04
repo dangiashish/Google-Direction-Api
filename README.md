@@ -47,7 +47,7 @@ public void getRoutePoints(LatLng start, LatLng end) {
            Log.e("ASHISH", " latlngs are null");
        } else {
            RouteDrawing routeDrawing = new RouteDrawing.Builder()
-              .key(getResources()
+              .context(getApplicationContext())   // pass your activity or fragments's context here
               .getString(R.string.google_maps_key))
               .travelMode(AbstractRouting.TravelMode.DRIVING)
               .withListener(this).alternativeRoutes(true)
