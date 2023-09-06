@@ -47,13 +47,12 @@ public void getRoutePoints(LatLng start, LatLng end) {
            Log.e("ASHISH", " latlngs are null");
        } else {
            RouteDrawing routeDrawing = new RouteDrawing.Builder()
-              .context(getApplicationContext())   // pass your activity or fragments's context here
-              .getString(R.string.google_maps_key))
-              .travelMode(AbstractRouting.TravelMode.DRIVING)
-              .withListener(this).alternativeRoutes(true)
-              .waypoints(start, end)
-	      .build();
-           routeDrawing.execute();
+                .context(MainActivity.this)  // pass your activity or fragment's context
+                .travelMode(AbstractRouting.TravelMode.DRIVING)
+                .withListener(this).alternativeRoutes(true)
+                .waypoints(userLoc, destLoc)
+                .build();
+        routeDrawing.execute();
        }
 
 }
