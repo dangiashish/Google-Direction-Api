@@ -10,9 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c72c2b3-bd7b-44dd-9bb5-1ac217956847" name="Changes" comment="new Optimization">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,8 +59,8 @@
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Android Studio Projects&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Android Studio Projects/Google-Direction-Api/GoogleDirectionApi/src/main/java/com/codebyashish/googledirectionapi&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
 }</component>
@@ -72,12 +69,14 @@
       <recent name="com.codebyashish" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Android Studio Projects\Google-Direction-Api\GoogleDirectionApi\src\main\java\com\codebyashish\googledirectionapi" />
       <recent name="E:\Android Studio Projects\Google-Direction-Api" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Android Studio Projects\Google-Direction-Api\sample" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.codebyashish.googledirectionapi" />
       <recent name="com.codebyashish" />
     </key>
   </component>
