@@ -72,7 +72,7 @@ dependencies {
 public void getRoutePoints(LatLng start, LatLng end) {
        if (start == null || end == null) {
            Toast.makeText(this, "Unable to get location", Toast.LENGTH_LONG).show();
-           Log.e("ASHISH", " latlngs are null");
+           Log.e("TAG", " latlngs are null");
        } else {
            RouteDrawing routeDrawing = new RouteDrawing.Builder()
                 .context(MainActivity.this)  // pass your activity or fragment's context
@@ -94,7 +94,7 @@ Implement the `RouteListener` interface class in your `Activity/Fragment` to ove
 ```java
 @Override
 public void onRouteFailure(ErrorHandling e) {
-    Log.w("ashish checkroute", "onRoutingFailure: " + e);
+    Log.w("TAG", "onRoutingFailure: " + e);
 }
 ```
 
@@ -102,7 +102,7 @@ public void onRouteFailure(ErrorHandling e) {
 ```java
 @Override
 public void onRouteStart() {
-    Log.d("ashish checkroute", "yes started");
+    Log.d("TAG", "yes started");
 }
     
 ```
@@ -118,7 +118,7 @@ public void onRouteSuccess(ArrayList<RouteInfoModel> routeInfoModelArrayList, in
      ArrayList<Polyline> polylines = new ArrayList<>();
      for (int i = 0; i < routeInfoModelArrayList.size(); i++) {
          if (i == routeIndexing) {
-             Log.e("ASHISH", "onRoutingSuccess: routeIndexing" + routeIndexing);
+             Log.e("TAG", "onRoutingSuccess: routeIndexing" + routeIndexing);
              polylineOptions.color(getResources().getColor(R.color.black));
              polylineOptions.width(12);
              polylineOptions.addAll(routeInfoModelArrayList.get(routeIndexing).getPoints());
@@ -136,7 +136,7 @@ public void onRouteSuccess(ArrayList<RouteInfoModel> routeInfoModelArrayList, in
 ```java
 @Override
 public void onRouteCancelled() {
-    Log.d("ASHISH", "route canceled")
+    Log.d("TAG", "route canceled")
     // restart your route drawing
 }
 ```
