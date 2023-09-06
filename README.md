@@ -3,7 +3,7 @@
 [![](https://jitpack.io/v/DangiAshish/Google-Direction-Api.svg)](https://jitpack.io/#DangiAshish/Google-Direction-Api)
 [![YouTube Tutorial](https://img.shields.io/badge/YouTube_Tutorial-1k-%23FF0000.svg)](https://youtu.be/DRaRStNyZ0k)
 
-## ℹ️ Library Info : 
+## ℹ️ Library Details : 
 This is an android library which provides you a direction path between two points (locations) such as device location to destination location. To use this library, you need to create a project on Goolge Cloud Console and enabble the Map SDK along with Google Direction Api. After the all completion of the setup, just follow these simple steps to implement the code in your project.
 
 
@@ -11,7 +11,12 @@ This is an android library which provides you a direction path between two point
 
 <img src="https://github.com/dangiashish/Google-Direction-Api/sample/GIF_20230221_124204.gif" alt="gif" style="width:200px; height:400px"/>
 
+<!-- ## 📚 Libraries Used :
+* [Kotlin][0] : Kotlin is statically typed & first-class language for Android Development.
 
+[0]:  https://kotlinlang.org/
+
+-->
 
 ### Gradle
 
