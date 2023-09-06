@@ -15,7 +15,7 @@ This is an android library which provides you a direction path between two point
 		    <br/>
 		    OR
 		    <br/>
-		    <a href = "https://github.com/dangiashish/Google-Direction-Api/assets/70362030/30d99832-dd52-45f0-bb95-dbccb83e6676"> Youtube Tutotial Of Implemetation</a>
+		    <a href = "https://youtu.be/DRaRStNyZ0k"> Youtube Tutotial Of Implemetation</a>
 	    </td>
         </tr>
         <tr>
