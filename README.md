@@ -10,7 +10,13 @@ This is an android library which provides you a direction path between two point
 <table border="1">
         <tr>
             <td align="center"><img src = "https://github.com/dangiashish/Google-Direction-Api/assets/70362030/92ff9cda-eb92-4a5f-a2b4-ec5435699523" width=250/></td>
-            <td align="center"> <a href = "https://github.com/dangiashish/Google-Direction-Api/assets/70362030/30d99832-dd52-45f0-bb95-dbccb83e6676"> Click to watch video demo </a> </td>
+            <td align="center"> 
+		    <a href = "https://github.com/dangiashish/Google-Direction-Api/assets/70362030/30d99832-dd52-45f0-bb95-dbccb83e6676"> Click to watch video demo </a>
+		    <br/>
+		    OR
+		    <br/>
+		    <a href = "https://github.com/dangiashish/Google-Direction-Api/assets/70362030/30d99832-dd52-45f0-bb95-dbccb83e6676"> Youtube Tutotial Of Implemetation</a>
+	    </td>
         </tr>
         <tr>
             <td align="center">Image</td>
@@ -19,10 +25,10 @@ This is an android library which provides you a direction path between two point
     </table>
 
 
-<!-- ## 📚 Libraries Used :
-* [Kotlin][0] : Kotlin is statically typed & first-class language for Android Development.
+<!-- ## 📚 Langguages Used :
+* [Java][0] : 
 
-[0]:  https://kotlinlang.org/
+[0]:  
 
 -->
 
