@@ -119,7 +119,7 @@ public void onRouteSuccess(ArrayList<RouteInfoModel> routeInfoModelArrayList, in
      for (int i = 0; i < routeInfoModelArrayList.size(); i++) {
          if (i == routeIndexing) {
              Log.e("TAG", "onRoutingSuccess: routeIndexing" + routeIndexing);
-             polylineOptions.color(getResources().getColor(R.color.black));
+             polylineOptions.color(Color.BLACK);
              polylineOptions.width(12);
              polylineOptions.addAll(routeInfoModelArrayList.get(routeIndexing).getPoints());
              polylineOptions.startCap(new RoundCap());
