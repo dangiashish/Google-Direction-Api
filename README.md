@@ -124,7 +124,7 @@ public void onRouteSuccess(ArrayList<RouteInfoModel> routeInfoModelArrayList, in
              polylineOptions.addAll(routeInfoModelArrayList.get(routeIndexing).getPoints());
              polylineOptions.startCap(new RoundCap());
              polylineOptions.endCap(new RoundCap());
-             polyline = map.addPolyline(polylineOptions);
+             Polyline polyline = map.addPolyline(polylineOptions);
              polylines.add(polyline);
 	  }
      }
