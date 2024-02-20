@@ -1,6 +1,6 @@
 # Google Direction Api 🗺️
 
-<a href="https://youtu.be/DRaRStNyZ0k"><img src="https://img.shields.io/badge/YouTube_Tutorial-1.3k-%23FF0000.svg"/></a>
+<a href="https://youtu.be/DRaRStNyZ0k"><img src="https://img.shields.io/badge/YouTube_Tutorial-2.5k-%23FF0000.svg"/></a>
 <a href="https://jitpack.io/#DangiAshish/Google-Direction-Api"><img src="https://jitpack.io/v/DangiAshish/Google-Direction-Api.svg"/></a>
 <a href="https://www.codefactor.io/repository/github/dangiashish/google-direction-api"><img src="https://www.codefactor.io/repository/github/dangiashish/google-direction-api/badge" alt="CodeFactor" /></a>
 
